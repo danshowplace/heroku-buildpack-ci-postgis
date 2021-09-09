@@ -24,7 +24,7 @@ RUN tar xvfz ./json-c-${JSON_C_VERSION}.tar.gz
 
 RUN cd ./geos-${GEOS_VERSION} && ./configure --prefix=/postgis-dependencies && make && make install
 RUN cd ./proj-${PROJ_VERSION} && ./configure --prefix=/postgis-dependencies && make && make install
-RUN cd ./json-c-${JSON_C_VERSION} && cmake . && make && make DESTDIR=/postgis-dependencies install
+RUN cd ./json-c-${JSON_C_VERSION} && mkdir build && cd build && ../cmake-configure --prefix=/postgis-dependencies && make && make install
 
 RUN export INCLUDE_PATH="/postgis-dependencies/include:$INCLUDE_PATH"
 RUN export CPATH="$INCLUDE_PATH"
