@@ -24,7 +24,7 @@ RUN tar xvfz ./json-c-${JSON_C_VERSION}.tar.gz
 
 RUN cd ./geos-${GEOS_VERSION} && ./configure --prefix=/postgis-dependencies && make && make install
 RUN cd ./proj-${PROJ_VERSION} && ./configure --prefix=/postgis-dependencies && make && make install
-RUN cd ./json-c-${JSON_C_VERSION} && cmake . && make && make install
+RUN cd ./json-c-${JSON_C_VERSION} && cmake . && make prefix=/postgis-dependencies && make prefix=/postgis-dependencies DESTDIR=/postgis-dependencies install
 
 RUN export INCLUDE_PATH="/postgis-dependencies/include:$INCLUDE_PATH"
 RUN export CPATH="$INCLUDE_PATH"
@@ -38,7 +38,7 @@ RUN cd ./postgis-${POSTGIS_VERSION} && ./configure \
     --without-raster \
     --with-geosconfig=/postgis-dependencies/bin/geos-config \
     --with-projdir=/postgis-dependencies \
-    --with-jsondir=/usr/local/include/json-c \
+    --with-jsondir=/postgis-dependencies/usr/local/include/json-c \
     && make
 
 COPY postgis-extensions-without-raster.Makefile ./postgis-${POSTGIS_VERSION}/extensions/postgis/Makefile
