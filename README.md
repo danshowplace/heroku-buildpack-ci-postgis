@@ -25,6 +25,7 @@ Just add it to `app.json` definition, like:
         { "url":  "https://github.com/tangogroup/heroku-buildpack-ci-postgis" },
         { "url": "heroku/nodejs"},
       ],
+      "env": {  "POSTGRESQL_VERSION": "13.1" },
       "addons": ["heroku-postgresql:in-dyno"]
     }
   }
