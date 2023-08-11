@@ -17,8 +17,8 @@ BUILDPACK_DIR="$(dirname $(dirname $0))"
 
 # config
 POSTGIS_VERSION=2.5.2
-POSTGIS_DOWNLOAD_URL="https://gloo-api-assets.s3-us-west-2.amazonaws.com/postgis.tar.gz"
-POSTGIS_DEPENDENCIES_DOWNLOAD_URL="https://gloo-api-assets.s3-us-west-2.amazonaws.com/postgis-dependencies.tar.gz"
+POSTGIS_DOWNLOAD_URL="https://wholesale-assets.s3.us-east-2.amazonaws.com/postgis-2.5.2.tar.gz"
+POSTGIS_DEPENDENCIES_DOWNLOAD_URL="https://wholesale-assets.s3.us-east-2.amazonaws.com/postgis-dependencies.tar.gz"
 
 echo "-----> Downloading postgis"
 
