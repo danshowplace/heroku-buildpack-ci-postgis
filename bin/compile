@@ -17,9 +17,8 @@ BUILDPACK_DIR="$(dirname $(dirname $0))"
 
 # config
 POSTGIS_VERSION=2.5.2
-POSTGIS_DOWNLOAD_URL="https://wholesale-assets.s3.us-east-2.amazonaws.com/postgis-2.5.2.tar.gz"
+POSTGIS_DOWNLOAD_URL="https://wholesale-assets.s3.us-east-2.amazonaws.com/postgis.tar.gz"
 POSTGIS_DEPENDENCIES_DOWNLOAD_URL="https://wholesale-assets.s3.us-east-2.amazonaws.com/postgis-dependencies.tar.gz"
-GEOS_CONFIG="https://wholesale-assets.s3.us-east-2.amazonaws.com/geos-config"
 
 echo "-----> Downloading postgis"
 
@@ -27,7 +26,6 @@ cd $BUILD_DIR
 
 curl $POSTGIS_DOWNLOAD_URL -s -o - | tar xzf -
 curl $POSTGIS_DEPENDENCIES_DOWNLOAD_URL -s -o - | tar xzf -
-curl $GEOS_CONFIG -s -o -
 
 echo "-----> postgis downloaded"
 echo "-----> installing postgis"
